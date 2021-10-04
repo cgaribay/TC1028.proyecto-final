@@ -1,0 +1,25 @@
+INSTRUCCIONES PARA EL PRIMER ENTREGABLE DEL PROYECTO FINAL
+
+1. Reunanse con su equipo y elijan el tipo de establecimiento para su proyecto
+2. Definan las columnas de la tabla de producto, vendedores y ventas
+3. Modifiquen los archivos productos, vendedores y ventas para que se ajusten a su proyecto
+4. Para cada sección del proyecto definan que integrante del equipo hará cada sección
+5. Descripcion (Diagrama de flujo idealmente) de lo que se tiene que hacer para cada una de esas secciones.
+
+    Ejemplo de Descripción (si es diagrama de flujo mejor):
+    REGISTRAR UNA VENTA
+    I) Preguntar el usuario cual producto desea comprar
+    II) Pregunta al usuario cuantos quiere
+    II) Revisar si hay suficientes en el inventario
+        II.1) No hay ninguno
+        - Decirle que no hay (Nice to have: Decirle cuando llegan)
+        II.2) Hay pero menos de los que quiere
+        - Preguntarle al usuario si esta bien la cantidad menor
+        - Si esta bien decirle el total, si no, cancelar la venta
+        II.3) Hay suficientes
+        - Decirle cuanto es el total
+
+6. Describir cuales de nuestras matrices de datos deben de cambiar y cómo para cada una de las secciones (Poner cuales matrices se tendrian que modificar y de que forma)
+    Ejemplo:
+    Cuando se hace una venta, se debe de actualizar la matriz de productos para que se reduzca el número que hay en existencia del producto que se compró-
+    También se debe insertar un nuevo record en la matriz de ventas que refleje la venta que se acaba de realizar

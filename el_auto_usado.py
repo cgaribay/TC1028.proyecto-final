@@ -5,21 +5,20 @@ import ventas
 
 def print_matriz(matriz, nombre_columnas):
     bigger_size = []
-    
-    for i in nombre_columnas:
-        bigger_size.append(len(i))
-    
+    for nombre in nombre_columnas:
+        bigger_size.append(len(nombre))
+
     for idx, columnas in enumerate(matriz):
         for element in columnas:
             if len(str(element)) > bigger_size[idx]:
                 bigger_size[idx] = len(str(element))
-        
-    for idx, nombre_columna in enumerate(nombre_columnas):
-        print(nombre_columna.center(bigger_size[idx] + 2), end = "")
+
+    for idx, titulo in enumerate(nombre_columnas):
+        print(titulo.center(bigger_size[idx] + 2), end = "")
     print()
 
-    for i in range(len(matriz[0])): #0 - 4
-        for j in range(len(nombre_columnas)): #0 - 5
+    for i in range(len(matriz[0])):
+        for j in range(len(nombre_columnas)):
             print(str(matriz[j][i]).center(bigger_size[j] + 2), end = "")
         print()
 
