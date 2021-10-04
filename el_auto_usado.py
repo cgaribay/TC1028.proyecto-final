@@ -3,35 +3,23 @@ import productos
 import vendedores
 import ventas
 
-def print_matriz(matriz, nombre):
+def print_matriz(matriz, nombre_columnas):
     bigger_size = []
-    columnas_matriz = []
     
-    if nombre == 'productos':
-        columnas_matriz = productos.COLUMNAS
-        for i in productos.COLUMNAS:
-            bigger_size.append(len(i))
-    elif nombre == 'vendedores':
-        columnas_matriz = vendedores.COLUMNAS
-        for i in vendedores.COLUMNAS:
-            bigger_size.append(len(i))
-    elif nombre == 'ventas':
-        columnas_matriz = ventas.COLUMNAS
-        for i in ventas.COLUMNAS:
-            bigger_size.append(len(i))
+    for i in nombre_columnas:
+        bigger_size.append(len(i))
     
     for idx, columnas in enumerate(matriz):
         for element in columnas:
             if len(str(element)) > bigger_size[idx]:
                 bigger_size[idx] = len(str(element))
         
-    
-    for idx, nombre_columna in enumerate(columnas_matriz):
+    for idx, nombre_columna in enumerate(nombre_columnas):
         print(nombre_columna.center(bigger_size[idx] + 2), end = "")
     print()
 
     for i in range(len(matriz[0])): #0 - 4
-        for j in range(len(columnas_matriz)): #0 - 5
+        for j in range(len(nombre_columnas)): #0 - 5
             print(str(matriz[j][i]).center(bigger_size[j] + 2), end = "")
         print()
 
@@ -61,11 +49,11 @@ def main():
     ]
 
     print("*" * 100)
-    print_matriz(lista_productos, 'productos')
+    print_matriz(lista_productos, productos.COLUMNAS)
     print("*" * 100)
-    print_matriz(lista_vendedores, 'vendedores')
+    print_matriz(lista_vendedores, vendedores.COLUMNAS)
     print("*" * 100)
-    print_matriz(lista_ventas, 'ventas')
+    print_matriz(lista_ventas, ventas.COLUMNAS)
     print("*" * 100)
 
 main()
