@@ -1,6 +1,6 @@
 INSTRUCCIONES PARA EL PRIMER ENTREGABLE DEL PROYECTO FINAL
 
-1. Reunanse con su equipo y elijan el tipo de establecimiento para su proyecto
+1. Reunanse con su equipo y elijan el tipo de establecimiento para su proyecto 
 2. Definan las columnas de la tabla de producto, vendedores y ventas
 3. Modifiquen los archivos productos, vendedores y ventas para que se ajusten a su proyecto
 4. Para cada sección del proyecto definan que integrante del equipo hará cada sección
