@@ -23,3 +23,4 @@ INSTRUCCIONES PARA EL PRIMER ENTREGABLE DEL PROYECTO FINAL
     Ejemplo:
     Cuando se hace una venta, se debe de actualizar la matriz de productos para que se reduzca el número que hay en existencia del producto que se compró-
     También se debe insertar un nuevo record en la matriz de ventas que refleje la venta que se acaba de realizar
+    ..
