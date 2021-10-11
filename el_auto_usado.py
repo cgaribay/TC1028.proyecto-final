@@ -1,17 +1,10 @@
 #import datetime
+from pathlib import Path
 import productos
 import vendedores
 import ventas
 
-lista_productos = [
-    ["1", "2", "3", "4", "5"],                                          #Producto ID
-    ['ford', 'chevrolet', 'honda', 'toyota', 'vw'],                     #Marca
-    ['mustang', 'camaro', 'civic', 'prius', 'jetta'],                   #Sub Marca
-    ["2005", "2006", "2004", "2010", "2012"],                           #Modelo
-    ["50000", "60000", "30000", "60000", "70000"],                      #Precio
-    ["2", "1", "0", "3", "2"],                                          #Existencia
-    ["06/01/2020","06/01/2020","06/01/2020","06/01/2020", "06/01/2020"] #Fecha resurtido
-]
+lista_productos = []
 
 lista_vendedores = [
     ["1", "2", "3"],                                   #Vendedor ID
@@ -69,6 +62,40 @@ def obtener_id(matriz, indice):
     else:
         return -1
 
+# obtener_precio
+# matriz: la tabla en la que deseas encontrar el precio
+# indice: el indice del elemento del que deseas encontrar el precio o -1 si el indice es incorrecto
+def obtener_precio(matriz, indice):
+    if indice < len(matriz[productos.PRECIO]) and indice >= -len(matriz[productos.PRECIO]):
+        return matriz[productos.PRECIO][indice]
+    else:
+        return -1
+
+# Abrir el archivo de productos, leer su informacion y carga la informacion en lista_productos
+def cargarProductos():
+    ruta_productos = Path('archivos', 'productos.csv')
+    archivo_productos = open(ruta_productos)
+    content_productos = archivo_productos.readlines()
+    for line in content_productos:
+        lista_productos.append(line.strip().split(','))
+    archivo_productos.close()
+
+#Abrir el archivo de producto y guarda en el la informacion que hay en lista_productos
+def guardarProductos():
+    string_content = ""
+    for lines in lista_productos:
+        for idx, element in enumerate(lines):
+            if idx == len(lines) - 1:
+                string_content += element + "\n"
+            else:
+                string_content += element + ","
+
+    string_content = string_content.strip()
+    ruta_productos = Path('archivos', 'productos.csv')
+    archivo_productos = open(ruta_productos, "w")
+    archivo_productos.write(string_content)
+    archivo_productos.close()
+
 def menu():
     print()
     print("  Elija una de las siguientes opciones:")
@@ -105,9 +132,12 @@ def main():
     print("| Bienvenido a El Auto Usado |")
     print("-" * 30)
 
+    cargarProductos()
+
     while True:
         selected = menu()
         if selected == 0:
+            guardarProductos()
             print("Gracias por su visita")
             break
         elif selected == 1:
